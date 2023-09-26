@@ -9,6 +9,10 @@ import { Ingredient } from '../shared/ingredient.model';
 export class ShoppingListComponent {
   ingredients: Ingredient[] = [
     new Ingredient('Panner Biriyayi', 10),
-    new Ingredient('Tomato', 2)
+    new Ingredient('Tomato', 2),
   ];
+
+  onIngredientsAdded(event: Ingredient) {
+    this.ingredients.push(event);
+  }
 }
