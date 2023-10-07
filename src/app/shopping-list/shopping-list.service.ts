@@ -11,6 +11,7 @@ export class ShoppingListService {
   ];
 
   ingredientsChanged = new Subject<Ingredient[]>();
+  startedEditing = new Subject<number>();
 
   /**
    * Gives the ingredients.
@@ -18,6 +19,15 @@ export class ShoppingListService {
    */
   getIngredients() {
     return this.ingredients.slice();
+  }
+
+  /**
+   * Gives back the ingredient object as per the index.
+   * @param index position of the element.
+   * @returns Ingredient
+   */
+  getIngredientsByIndex(index: number): Ingredient {
+    return this.ingredients[index];
   }
 
   /**
