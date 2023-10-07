@@ -37,7 +37,7 @@ export class ShoppingListService {
   addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
     // using subject's next to emmit (saying) the changes.
-    this.ingredientsChanged.next(this.ingredients.slice());
+    this.notifyIngredientChanged();
   }
 
   /**
@@ -46,17 +46,17 @@ export class ShoppingListService {
    */
   addIngredients(ingredient: Ingredient[]) {
     this.ingredients.push(...ingredient);
-    this.ingredientsChanged.next(this.ingredients.slice());
+    this.notifyIngredientChanged();
   }
 
   /**
    * Updates the item in the ingredient array.
    * @param index position need to update.
-   * @param newIngredient Ingredient object. F
+   * @param newIngredient Ingredient object.
    */
   updateIngredient(index: number, newIngredient: Ingredient) {
     this.ingredients[index] = newIngredient;
-    this.ingredientsChanged.next(this.ingredients.slice());
+    this.notifyIngredientChanged();
   }
 
   /**
@@ -65,6 +65,11 @@ export class ShoppingListService {
    */
   deleteIngredient(index: number) {
     this.ingredients.splice(index, 1);
+    this.notifyIngredientChanged();
+  }
+
+  private notifyIngredientChanged() {
+    // using subject's next to emmit (saying) the changes.
     this.ingredientsChanged.next(this.ingredients.slice());
   }
 }
