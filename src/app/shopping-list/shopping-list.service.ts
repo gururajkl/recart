@@ -48,4 +48,23 @@ export class ShoppingListService {
     this.ingredients.push(...ingredient);
     this.ingredientsChanged.next(this.ingredients.slice());
   }
+
+  /**
+   * Updates the item in the ingredient array.
+   * @param index position need to update.
+   * @param newIngredient Ingredient object. F
+   */
+  updateIngredient(index: number, newIngredient: Ingredient) {
+    this.ingredients[index] = newIngredient;
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
+
+  /**
+   * Deletes the respected ingredient.
+   * @param index position need to delete.
+   */
+  deleteIngredient(index: number) {
+    this.ingredients.splice(index, 1);
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
 }
