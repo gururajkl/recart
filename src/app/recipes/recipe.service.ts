@@ -69,11 +69,15 @@ export class RecipeService {
    */
   updatedRecipe(index: number, newRecipe: Recipe) {
     this.recipes[index] = newRecipe;
-    this.recipeChanged.next(this.recipes.slice());
+    this.notifyChangeToTheUI();
   }
 
   deleteRecipe(index: number) {
     this.recipes.splice(index, 1);
+    this.notifyChangeToTheUI();
+  }
+
+  notifyChangeToTheUI() {
     this.recipeChanged.next(this.recipes.slice());
   }
 }
