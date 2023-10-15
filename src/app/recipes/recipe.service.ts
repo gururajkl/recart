@@ -13,20 +13,27 @@ export class RecipeService {
 
   constructor(private shoppingListService: ShoppingListService) {}
 
-  private recipes: Recipe[] = [
-    new Recipe(
-      'A Test Recipe 1',
-      'Simple test description.',
-      'https://www.seriouseats.com/thmb/uH_msyHurzKTDRzc4c_goGoLANI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SEA-classic-panzanella-salad-recipe-hero-03-74d7b17dde8f498795387ef0c22d7215.jpg',
-      [new Ingredient('Test 1', 2), new Ingredient('Test 2', 4)]
-    ),
-    new Recipe(
-      'A Test Recipe 2',
-      'Simple test description.',
-      'https://www.seriouseats.com/thmb/uH_msyHurzKTDRzc4c_goGoLANI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SEA-classic-panzanella-salad-recipe-hero-03-74d7b17dde8f498795387ef0c22d7215.jpg',
-      [new Ingredient('Tomatos', 1), new Ingredient('Chilli', 5)]
-    ),
-  ];
+  // private recipes: Recipe[] = [
+  //   new Recipe(
+  //     'A Test Recipe 1',
+  //     'Simple test description.',
+  //     'https://www.seriouseats.com/thmb/uH_msyHurzKTDRzc4c_goGoLANI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SEA-classic-panzanella-salad-recipe-hero-03-74d7b17dde8f498795387ef0c22d7215.jpg',
+  //     [new Ingredient('Test 1', 2), new Ingredient('Test 2', 4)]
+  //   ),
+  //   new Recipe(
+  //     'A Test Recipe 2',
+  //     'Simple test description.',
+  //     'https://www.seriouseats.com/thmb/uH_msyHurzKTDRzc4c_goGoLANI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SEA-classic-panzanella-salad-recipe-hero-03-74d7b17dde8f498795387ef0c22d7215.jpg',
+  //     [new Ingredient('Tomatos', 1), new Ingredient('Chilli', 5)]
+  //   ),
+  // ];
+
+  private recipes: Recipe[] = [];
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.notifyChangeToTheUI();
+  }
 
   /**
    * Gives the list of recipe.
