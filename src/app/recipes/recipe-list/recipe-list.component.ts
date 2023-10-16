@@ -26,6 +26,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
       }
     );
     this.recipes = this.recipeService.getRecipe();
+    console.log(this.recipes.length);
   }
 
   onNewRecipe() {
