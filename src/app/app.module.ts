@@ -19,6 +19,8 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { AlertComponent } from './shared/alert/alert.component';
+import { PlaceHolderDirective } from './shared/placeholder/placeholder.directive';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
     RecipeEditComponent,
     AuthComponent,
     LoadingSpinnerComponent,
+    AlertComponent,
+    PlaceHolderDirective,
   ],
   imports: [
     BrowserModule,
